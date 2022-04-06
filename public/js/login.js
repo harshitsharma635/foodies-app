@@ -9,7 +9,7 @@ loginBtn.addEventListener("click" ,async (e) => {
         //console.log("btn clickedd");
         e.preventDefault();
         if(email.value && password.value){
-            let obj = await axios.post("http://localhost:3000/api/users/login" , {email : email.value , password : password.value});
+            let obj = await axios.post("https://foodiess-app.herokuapp.com/api/users/login" , {email : email.value , password : password.value});
             if(obj.data.data){
                 window.location.href = "/";
             }else{

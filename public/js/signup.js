@@ -17,10 +17,10 @@ signupBtn.addEventListener("click" , async (evt)=>{
                 password : password.value,
                 confirmPassword : confirmPassword.value
             }
-            let obj = await axios.post("http://localhost:3000/api/users/signup" , signUpObj);
+            let obj = await axios.post("https://foodiess-app.herokuapp.com/api/users/signup" , signUpObj);
             //console.log(obj);
             if(obj.data.data){
-                window.location.href = "http://localhost:3000/login"
+                window.location.href = "https://foodiess-app.herokuapp.com/login"
             }
         }
     } catch (error) {

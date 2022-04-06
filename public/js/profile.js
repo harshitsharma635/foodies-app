@@ -7,7 +7,7 @@ imageUpload.addEventListener("change" , async (e) =>{
     let formData = new FormData();
     formData.append("user" , file);
 
-    let obj = await axios.patch("http://localhost:3000/api/users/updateprofilepic" , formData);
+    let obj = await axios.patch("https://foodiess-app.herokuapp.com/api/users/updateprofilepic" , formData);
     console.log(obj);
     if(obj.data.message){
         window.location.reload();
