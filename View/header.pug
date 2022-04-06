@@ -1,0 +1,18 @@
+nav.fixed
+  ul
+    li
+      a.nav-links(href='/') FEATURES
+    li
+      a.nav-links(href='/details') DETAILS
+    li
+      a.nav-links(href='/reviews') REVIEWS
+    li
+      a.nav-links(href='/plans') PLANS
+    if name
+      li
+        a.nav-links(href='/profile') #{name} , 
+      li
+        a.nav-links(href = "/logout") LOGOUT
+    else
+      li
+        a.nav-links(href = "/login") LOGIN

@@ -1,0 +1,27 @@
+extends base.pug
+block content
+    section.profile
+        .container
+            h1
+                | Profile Image
+            .avatar-upload
+                .avatar-edit
+                    input#imageUpload(type='file' accept='.png, .jpg, .jpeg')
+                    label(for='imageUpload')
+                .avatar-preview
+                    #imagePreview(style=`background-image: url('${user.pImage}');`)
+        .profile-data
+            .name
+                label(for="name") Name :  
+                input(type="text" , value = user.name , name = "name" , disabled)
+            .email
+                label(for="email") Email :
+                input(type="text" , value = user.email , name = "email" , disabled)
+            .role
+                label(for="role") Role :
+                input(type="text" , value = user.role , name = "role" , disabled)
+            .profile-btns
+                input(type="button", value="Edit").show.btn
+                input(type="button", value="Save").book.btn
+block scripts
+    script(src="./js/profile.js") 

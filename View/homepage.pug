@@ -1,0 +1,210 @@
+extends base.pug
+block header
+    header
+        include homepageheader.pug
+        .hero-textbox
+            .hero-text
+                h2
+                    | Meal Plans. 
+                    br
+                    |  for 
+                    span#showcase-text
+                    span.cursor  
+            .hero-btns
+                a.book.btn(href='#') Book Now
+                a.show.btn(href='#') Show me more
+block content
+    section#features
+        h2 GET FOOD FAST — NOT FAST FOOD.
+        hr
+        p#feature-description
+            | Hello, we’re RebelFoods, your new premium food delivery service. We know you’re
+            | always busy. No time for cooking. So let us take care of that, we’re really good at it, we promise!
+        .features-container
+            .feature-box
+                .feature-head
+                    i.fa-solid.fa-infinity
+                    h3 UP TO 365 DAYS/YEAR
+                .feature-content
+                    p
+                        | Never cook again! We really mean that. Our subscription plans include up to 365 days/year
+                        | coverage. You can also choose to order more flexibly if that's your style.
+            .feature-box
+                .feature-head
+                    i.fa-solid.fa-clock
+                    h3 READY IN 20 MINUTES
+                .feature-content
+                    p
+                        | You're only twenty minutes away from your delicious and super healthy meals delivered right to
+                        | your home. We work with the best chefs in each town to ensure that you're 100% happy.
+            .feature-box
+                .feature-head
+                    i.fa-solid.fa-carrot
+                    h3 100% ORGANIC
+                .feature-content
+                    p
+                        | All our vegetables are fresh, organic and local. Animals are raised without added hormones or
+                        | antibiotics. Good for your health, the environment, and it also tastes better!
+            .feature-box
+                .feature-head
+                    i.fa-solid.fa-cart-plus
+                    h3 ORDER ANYTHING
+                .feature-content
+                    p
+                        | We don't limit your creativity, which means you can order whatever you feel like. You can also
+                        | choose from our menu containing over 100 delicious meals. It's up to you!
+    section#steps
+        .steps-head
+            h2 HOW IT WORKS — SIMPLE AS 1, 2, 3
+            hr
+        .steps-content
+            .steps-img
+                img(src='./images/app-iPhone.png' alt='')
+            .steps
+                .steps-txt
+                    span.steps-no 1
+                    |  Choose the subscription plan that best fits your
+                    |                     needs and sign up today.
+                .steps-txt
+                    span.steps-no 2
+                    |  Order your delicious meal using our mobile app
+                    |                     or website. Or you can even call us!
+                .steps-txt
+                    span.steps-no 3
+                    |  Enjoy your meal after less than 20 minutes. See
+                    |                     you the next time!
+    section#testimonials
+        .testimonial-head
+            h2 OUR CUSTOMERS CAN'T LIVE WITHOUT US
+            hr
+        .testimonial-content
+            .testimony
+                blockquote
+                    | RebelFoods is just awesome! I just launched a startup which leaves me with no time for cooking, so
+                    | Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+            .testimony
+                blockquote
+                    | RebelFoods is just awesome! I just launched a startup which leaves me with no time for cooking, so
+                    | Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+            .testimony
+                blockquote
+                    | RebelFoods is just awesome! I just launched a startup which leaves me with no time for cooking, so
+                    | Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+    section#plans
+        .plans-header
+            h2 START EATING HEALTHY TODAY
+            hr
+        .plans-content
+            .plan-box
+                .box-head
+                    h3 PREMIUM
+                    h2 399$ / month
+                    p That’s only 13.30$ per meal
+                .box-content
+                    p
+                        i.fa-solid.fa-check
+                        | 1 meal every day
+                    p
+                        i.fa-solid.fa-check
+                        | Order 24/7
+                    p
+                        i.fa-solid.fa-check
+                        | Access to newest creations
+                    p
+                        i.fa-solid.fa-check
+                        | Free delivery
+                .box-footer
+                    if name
+                        a.book.btn(href='/plans') Buy now
+                    else
+                        a.book.btn(href='/login') Sign up now        
+            .plan-box
+                .box-head
+                    h3 PRO
+                    h2 149$ / month
+                    p That’s only 14.90$ per meal
+                .box-content
+                    p
+                        i.fa-solid.fa-check
+                        | 1 meal 10 days/month
+                    p
+                        i.fa-solid.fa-check
+                        | Order 24/7
+                    p
+                        i.fa-solid.fa-check
+                        | Access to newest creations
+                    p
+                        i.fa-solid.fa-check
+                        | Free delivery
+                .box-footer
+                    if name
+                        a.show.btn(href='/plans') Buy now
+                    else
+                        a.show.btn(href='/login') Sign up now 
+            .plan-box
+                .box-head
+                    h3 STARTER
+                    h2 19$ / meal
+                    p
+                .box-content
+                    p
+                        i.fa-solid.fa-check
+                        | 1 meal
+                    p
+                        i.fa-solid.fa-check
+                        | Order from 8am to 8pm
+                    p
+                        i.fa-solid.fa-check
+                        | Access to newest creations
+                    p
+                        i.fa-solid.fa-check
+                        | Free delivery
+                .box-footer
+                    if name
+                        a.show.btn(href='/plans') Buy now
+                    else
+                        a.show.btn(href='/login') Sign up now 
+    section
+        .form-head
+            h2 WE'RE HAPPY TO HEAR FROM YOU
+            hr
+        form(action='')
+            table
+                tbody
+                    tr
+                        td
+                            label(for='Name') Name
+                        td
+                            input(type='text' placeholder='Your Name')
+                    tr
+                        td
+                            label(for='Email') Email
+                        td
+                            input(type='email' placeholder='Your Email')
+                    tr
+                        td
+                            label(for='source') How did you find us?
+                        td
+                            select#find-us(name='find-us')
+                                option(value='friends') friends
+                                option(value='search') search engine
+                                option(value='instagram') instagram
+                                option(value='ad') advertisement
+                                option(value='other') others
+                    tr
+                        td
+                            label(for='newsletter') Newsletter
+                        td
+                            input(type='checkbox' checked='')
+                            | Yes please!
+                    tr
+                        td
+                            label(for='message') Drop us a line
+                        td
+                            textarea(name='message' id='' cols='30' rows='10' placeholder='Your message')
+                    tr(style='text-align: center;')
+                        td(colspan='2')
+                            input.book.btn(style='color: white;' type='submit')
+
+
+    

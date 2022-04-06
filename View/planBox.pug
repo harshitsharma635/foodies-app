@@ -1,0 +1,26 @@
+.plan-box
+  .box-head
+    h3 #{plan.name}
+    h2 #{plan.price}$ / month
+    p That’s only #{Math.ceil(plan.price/plan.duration)}$ per meal
+  .box-content
+    p
+      i.fa-solid.fa-check
+      | 1 meal every day
+    p
+      i.fa-solid.fa-check
+      | Order 24/7
+    p
+      i.fa-solid.fa-check
+      | Access to newest creations
+    p
+      i.fa-solid.fa-check
+      | Free delivery
+    p
+      i.fa-solid.fa-check
+      | Rated #{plan.ratings} out of 10  
+  .box-footer
+    if name
+      a.book.btn.pay(href='#' , planId = `${plan["_id"]}`) Buy now
+    else
+      a.book.btn(href='/login') Sign up now

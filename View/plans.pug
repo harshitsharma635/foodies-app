@@ -1,0 +1,9 @@
+extends base.pug
+block content
+    section#plans
+        .plans-content
+            each plan in plans
+                include planBox.pug
+block scripts
+    script(src="https://js.stripe.com/v3/") 
+    script(src="./js/booking.js") 

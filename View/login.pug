@@ -1,0 +1,14 @@
+extends base.pug
+block content
+    .login-form
+        form(action="", method="post").login
+            h3 Login
+            input(type="email" , placeholder = "Enter your email")
+            input(type="password" , placeholder = "Enter your password")
+            p#message
+            a(href="/forgetpassword") forgot password ?
+            input(type="button", value="Login").book.btn
+            p Not a member?Signup here
+            input(type="button", value="Signup").show.btn
+block scripts
+    script(src="./js/login.js")                

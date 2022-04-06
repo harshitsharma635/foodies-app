@@ -1,0 +1,14 @@
+extends base.pug
+block content
+    .login-form
+        form(action="", method="post").login
+            h3 SignUP
+            input(type="text" , placeholder = "Enter your username")#name
+            input(type="email" , placeholder = "Enter your email")#email
+            input(type="password" , placeholder = "Enter your password")#pw
+            input(type="password" , placeholder = "Confirm your password")#cpw
+            input(type="button", value="SignUp").book.btn
+            p already a member?Login here
+            input(type="button", value="Login").show.btn
+block scripts
+    script(src="./js/signup.js")                
