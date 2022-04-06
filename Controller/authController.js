@@ -172,7 +172,7 @@ async function forgetPassword(req , res){
             //console.log(token);
             await user.save();
             //console.log("user saved!");
-            let resetLink = `http://localhost:3000/resetpassword/${token}`;
+            let resetLink = `https://foodiess-app.herokuapp.com/resetpassword/${token}`;
             let message = {
                 from : GMAIL_ID,
                 to : email,

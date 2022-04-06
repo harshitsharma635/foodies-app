@@ -10,11 +10,11 @@ resetBtn.addEventListener("click" , async () => {
             let urlParams = url.split("/");
             const token = urlParams[urlParams.length - 1];
             //console.log("in resetpw");
-            let obj = await axios.patch(`http://localhost:3000/api/users/resetpassword/${token}` , {password : password.value , confirmPassword : confirmPassword.valule});
+            let obj = await axios.patch(`https://foodiess-app.herokuapp.com/api/users/resetpassword/${token}` , {password : password.value , confirmPassword : confirmPassword.valule});
             if(obj.data.flag){
                 message.innerHTML = "Successfully changed password";
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3000/login"
+                    window.location.href = "https://foodiess-app.herokuapp.com/login"
                 }, 5000);
             }
         }

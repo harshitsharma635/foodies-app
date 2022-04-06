@@ -5,7 +5,7 @@ const message = document.querySelector("#message")
 sendMailBtn.addEventListener("click" ,async () => {
     try {
         if(email.value){
-            let obj = await axios.post("http://localhost:3000/api/users/forgetpassword" , {email : email.value});
+            let obj = await axios.post("https://foodiess-app.herokuapp.com/api/users/forgetpassword" , {email : email.value});
             console.log(obj);
             message.innerHTML = obj.data.message;
             email.value = "";
