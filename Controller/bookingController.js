@@ -49,7 +49,7 @@ async function createbookingsession(req , res){
 
 async function checkoutcomplete(req , res){
   console.log("inside checkout complete");
-  console.log(req);
+  // console.log(req);
   const stripeSignature = req.headers["stripe-signature"];
   let event;
   try {

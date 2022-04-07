@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const bookingRouter = express.Router();
 
 bookingRouter.post("/createbookingsession" , protectRoute ,createbookingsession);
-bookingRouter.post("/checkoutcomplete" , bodyParser.raw({type: 'application/json'}) ,checkoutcomplete)
+bookingRouter.post("/checkoutcomplete",checkoutcomplete)
 
 module.exports = bookingRouter;
+// , bodyParser.raw({type: 'application/json'})
