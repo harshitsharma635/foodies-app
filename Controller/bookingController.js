@@ -56,7 +56,7 @@ async function checkoutcomplete(req , res){
     event = stripe.webhooks.constructEvent(req.body, stripeSignature, CHECKOUT_KEY);
   } catch (error) {
     console.log(error);
-    res.status(400).send(`Webhook Error: ${err.message}`);
+    res.status(400).send(`Webhook Error: ${error.message}`);
   }
 
   console.log(event);
