@@ -51,6 +51,7 @@ async function checkoutcomplete(req , res){
   console.log("inside checkout complete");
   // console.log(req);
   const stripeSignature = req.headers["stripe-signature"];
+  console.log(stripeSignature);
   let event;
   try {
     event = stripe.webhooks.constructEvent(req.body, stripeSignature, CHECKOUT_KEY);
