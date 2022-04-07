@@ -24,8 +24,8 @@ async function createbookingsession(req , res){
               },
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/',
-            cancel_url: 'http://localhost:3000/',
+            success_url: 'https://foodiess-app.herokuapp.com/',
+            cancel_url: 'https://foodiess-app.herokuapp.com/'
           });
           // console.log(session);
           // res.redirect(303, session.url);
@@ -42,8 +42,14 @@ async function createbookingsession(req , res){
     }
 }
 
-async function createNewBooking( req , res){
+// async function createNewBooking( req , res){
   
+// }
+
+async function checkoutcomplete(req , res){
+  console.log("inside checkout complete");
+  console.log(req);
 }
 
 module.exports.createbookingsession = createbookingsession;
+module.exports.checkoutcomplete = checkoutcomplete;
