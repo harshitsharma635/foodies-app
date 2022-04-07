@@ -68,13 +68,13 @@ async function checkoutcomplete(req , res){
   }
 
   switch (event.type) {
-    case 'checkout.session.completed': {
+    case 'checkout.session.completed': 
       console.log("Done!!");
-    }
 
   console.log(event);
 
 }
+}
 
 module.exports.createbookingsession = createbookingsession;
-module.exports.checkoutcomplete = checkoutcomplete;
+module.exports.checkoutcomplete = checkoutcomplete
