@@ -54,7 +54,7 @@ async function checkoutcomplete(req , res){
   
 
 }
-}
+
 
 module.exports.createbookingsession = createbookingsession;
 module.exports.checkoutcomplete = checkoutcomplete
