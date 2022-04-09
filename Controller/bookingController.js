@@ -49,29 +49,9 @@ async function createbookingsession(req , res){
 
 async function checkoutcomplete(req , res){
   console.log("inside checkout complete");
-  const payload = req.body
+  console.log(req.body);
   const sig = req.headers['stripe-signature']
-  const payloadString = JSON.stringify(payload, null, 2);
-  const header = stripe.webhooks.generateTestHeaderString({
-          payload: payloadString,
-          CHECKOUT_KEY,
-  });
-  // console.log(req);
-  const stripeSignature = req.headers["stripe-signature"];
-  console.log(stripeSignature);
-  let event;
-  try {
-    event = stripe.webhooks.constructEvent(payloadString, header, secret);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(`Webhook Error: ${error.message}`);
-  }
-
-  switch (event.type) {
-    case 'checkout.session.completed': 
-      console.log("Done!!");
-
-  console.log(event);
+  
 
 }
 }
