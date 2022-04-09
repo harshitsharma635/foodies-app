@@ -12,6 +12,8 @@ async function createbookingsession(req , res){
         let planObj = await planModel.findById(planId);
         let userObj = await userModel.findById(userId);
         const session = await stripe.checkout.sessions.create({
+          customer_email : userObj.email,
+          client_reference_id: planId,
             line_items: [
               {
                 price_data: {
@@ -43,18 +45,29 @@ async function createbookingsession(req , res){
     }
 }
 
-// async function createNewBooking( req , res){
-  
-// }
 
 async function checkoutcomplete(req , res){
-  console.log("inside checkout complete");
-  console.log(req.body);
-  const sig = req.headers['stripe-signature']
+  try {
+    console.log("inside checkout complete");
+    //console.log(req.body);
+    const sig = req.headers['stripe-signature'];
+    const email = req.body.data.object.customer_email;
+    const planId = req.body.data.object.client_reference_id;
+    await createNewBooking(email , planId);
+    
+  } catch (error) {
+    res.json({
+      error
+    })
+  }
   
-
 }
 
+async function createNewBooking( email , planId){
+  console.log("Inside createNewBooking");
+  console.log(email);
+  console.log(planId);
+}
 
 module.exports.createbookingsession = createbookingsession;
 module.exports.checkoutcomplete = checkoutcomplete
