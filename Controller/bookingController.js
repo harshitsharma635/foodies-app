@@ -1,3 +1,4 @@
+const bookingModel = require('../Model/bookingModel');
 const planModel = require('../Model/plansModel');
 const userModel = require('../Model/usersModel');
 
@@ -64,9 +65,34 @@ async function checkoutcomplete(req , res){
 }
 
 async function createNewBooking( email , planId){
-  console.log("Inside createNewBooking");
-  console.log(email);
-  console.log(planId);
+  try {
+    let user = await userModel.findOne({email});
+    let plan = await planModel.findById(planId);
+    const userId = user["_id"];
+    if(user.bookedPlanId == undefined){
+      const bookingOrder = {
+        userId : userId ,
+        bookedPlans : [{planId : planId , planName : plan.name , currentPrice : plan.price}]
+      }
+
+      const newBookingOrder = await bookingModel.create(bookingOrder);
+      user.bookedPlanId = newBookingOrder["_id"];
+      await user.save();
+  
+    }else{
+      let userBookings = await bookingModel.findById(user.bookedPlanId);
+      const booking = {
+        planId : planId,
+        planName : plan.name,
+        currentPrice : plan.price
+      }
+      userBookings.bookedPlans.push(booking);
+      userBookings.save();
+    }
+    
+  } catch (error) {
+    return error
+  }
 }
 
 module.exports.createbookingsession = createbookingsession;
